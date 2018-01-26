@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {UsersService} from './user/users.service';
+import {MessagesService} from './message/messages.service';
 
 import { AppComponent } from './app.component';
 
@@ -15,7 +16,8 @@ import { AppComponent } from './app.component';
     BrowserModule
   ],
   providers: [
-    UsersService
+    UsersService,
+    MessagesService
   ],
   bootstrap: [AppComponent]
 })
