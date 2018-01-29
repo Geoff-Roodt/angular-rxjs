@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import {UsersService} from './user/users.service';
 import {MessagesService} from './message/messages.service';
+import {ThreadsService} from './thread/thread.service';
 
 import { AppComponent } from './app.component';
 
@@ -17,7 +18,8 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     UsersService,
-    MessagesService
+    MessagesService,
+    ThreadsService
   ],
   bootstrap: [AppComponent]
 })
