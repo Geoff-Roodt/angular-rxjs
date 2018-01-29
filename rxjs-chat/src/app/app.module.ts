@@ -3,15 +3,17 @@ import { NgModule } from '@angular/core';
 
 import {UsersService} from './user/users.service';
 import {MessagesService} from './message/messages.service';
-import {ThreadsService} from './thread/thread.service';
+import {ThreadsService} from './thread/threads.service';
 
 import { AppComponent } from './app.component';
+import { ChatThreadsComponent } from './chat-threads/chat-threads.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatThreadsComponent
   ],
   imports: [
     BrowserModule
