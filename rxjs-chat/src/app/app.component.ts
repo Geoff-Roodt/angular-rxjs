@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import {ChatExampleData} from './data/chat-example-data';
 
 @Component({
   selector: 'app-root',
