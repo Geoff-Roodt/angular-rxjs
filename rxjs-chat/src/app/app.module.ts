@@ -7,13 +7,15 @@ import {ThreadsService} from './thread/threads.service';
 
 import { AppComponent } from './app.component';
 import { ChatThreadsComponent } from './chat-threads/chat-threads.component';
+import { ChatThreadComponent } from './chat-thread/chat-thread.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatThreadsComponent
+    ChatThreadsComponent,
+    ChatThreadComponent
   ],
   imports: [
     BrowserModule
