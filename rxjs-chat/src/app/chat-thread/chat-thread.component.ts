@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Observable} from 'rxjs';
-import {ThreadsService} from '../thread/theads.service';
-import {Thread} from '../thread/thead.model';
+import {ThreadsService} from '../thread/threads.service';
+import {Thread} from '../thread/thread.model';
 
 @Component({
   selector: 'chat-thread',
