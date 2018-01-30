@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import { FromNowPipe } from './pipes/from-now.pipe';
 
 import {UsersService} from './user/users.service';
 import {MessagesService} from './message/messages.service';
@@ -21,10 +24,13 @@ import { ChatNavBarComponent } from './chat-nav-bar/chat-nav-bar.component';
     ChatThreadComponent,
     ChatWindowComponent,
     ChatMessageComponent,
-    ChatNavBarComponent
+    ChatNavBarComponent,
+    FromNowPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [
     UsersService,
