@@ -16,6 +16,7 @@ export class ChatThreadComponent implements OnInit {
 
   }
 
+  // This is the asynchronous event that our HTML waits to complete before rendering
   ngOnInit(): void {
     this.threadsService.currentThread.subscribe( (currentThread:Thread) => {
       this.selected = currentThread && this.thread && (currentThread.id === this.thread.id);

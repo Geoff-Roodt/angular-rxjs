@@ -5,6 +5,7 @@ import {Message} from '../message/message.model';
 import {MessagesService} from '../message/messages.service';
 import * as _ from 'lodash';
 
+// Declare the thread service as an injectable
 @Injectable()
 export class ThreadsService{
   threads: Observable<{[key:string]: Thread}>;
@@ -13,6 +14,8 @@ export class ThreadsService{
   currentThreadMessages: Observable<Message[]>;
 
   constructor(private messagesService:MessagesService){
+
+    // Setting up our threads variable to contain the appropriate messages
     this.threads = messagesService.messages.map( (messages:Message[]) => {
       const threads: {[key: string]: Thread} = {};
       messages.map((message: Message) => {
@@ -26,11 +29,13 @@ export class ThreadsService{
       return threads;
     });
 
+    // Sort the thread messages by the sent timestamp, incase they get jumbled up
     this.orderedThreads = this.threads.map((threadGroups: {[key:string]:Thread}) => {
       const threads:Thread[] = _.values(threadGroups);
       return _.sortBy(threads, (t:Thread) => t.lastMessage.sentAt).reverse();
     });
 
+    // Combine our current thread with the associated messages or if none exist return an empty collection
     this.currentThreadMessages = this.currentThread.combineLatest(messagesService.messages, (currentThread: Thread, messages: Message[]) => {
       if (currentThread && messages.length > 0){
         return _.chain(messages).filter((message:Message) => (message.thread.id === currentThread.id)).map((message:Message) => {
@@ -43,6 +48,7 @@ export class ThreadsService{
       }
     });
 
+    // Subscribe to the mark as read method, for when the thread is selected
     this.currentThread.subscribe(this.messagesService.markThreadAsRead);
 
   }

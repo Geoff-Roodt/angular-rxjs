@@ -1,3 +1,6 @@
+
+// Import all of the necessary components and modules for our application dependencies
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';

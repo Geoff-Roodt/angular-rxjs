@@ -21,6 +21,7 @@ export class MessagesService{
   markThreadAsRead:Subject<any> = new Subject<any>();
 
   constructor(){
+    // Share any updates with other subscribers and 'replay' (repeat)  the update for any late coming subscriptions
     this.messages = this.updates.scan((messages: Message[], operation: IMessagesOperation) => {
       return operation(messages);
     }, InitialMessages).publishReplay(1).refCount();
